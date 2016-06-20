@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.OrcamentoController">
+   <children>
+      <Pane layoutX="112.0" layoutY="14.0" prefHeight="480.0" prefWidth="640.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <ComboBox fx:id="cbCliente" layoutX="111.0" layoutY="37.0" onAction="#onActionCbCliente" prefHeight="25.0" prefWidth="213.0" promptText="Selecione o Cliente" />
+            <ComboBox fx:id="cbProduto" layoutX="111.0" layoutY="88.0" onAction="#onActionCbProduto" prefHeight="25.0" prefWidth="213.0" promptText="Selecione o Produto" />
+            <TableView fx:id="tvOrcamento" layoutX="26.0" layoutY="257.0" prefHeight="200.0" prefWidth="584.0">
+              <columns>
+                <TableColumn fx:id="tcCliente" prefWidth="150.0" text="Cliente" />
+                <TableColumn fx:id="tcProdutos" prefWidth="131.0" text="Produtos" />
+                  <TableColumn fx:id="tcValor" prefWidth="84.0" text="Valor" />
+                  <TableColumn fx:id="tcQuantidade" prefWidth="108.0" text="Quantidade" />
+                  <TableColumn fx:id="tvValorTotal" prefWidth="110.0" text="Valor Total" />
+              </columns>
+            </TableView>
+            <Label layoutX="50.0" layoutY="42.0" text="Cliente:" />
+            <Label layoutX="48.0" layoutY="93.0" text="Produto:" />
+            <Button fx:id="btnAdicionar" layoutX="391.0" layoutY="62.0" mnemonicParsing="false" onAction="#onActionAdicionar" text="Adicionar" />
+            <Button fx:id="btnCancelar" layoutX="514.0" layoutY="62.0" mnemonicParsing="false" onAction="#onActionCancelar" text="Cancelar" />
+            <Button fx:id="btnRemItem" layoutX="38.0" layoutY="202.0" mnemonicParsing="false" onAction="#onActionRemoverItem" text="Remover Item" />
+            <Button fx:id="btnNovoPedido" layoutX="173.0" layoutY="202.0" mnemonicParsing="false" onAction="#onActionNovoPedido" text="Novo Pedido" />
+            <Button fx:id="btnSalvaPedido" layoutX="300.0" layoutY="202.0" mnemonicParsing="false" onAction="#onActionSalvarPedido" text="Salvar Pedido" />
+            <Label layoutX="48.0" layoutY="129.0" text="Quantidade:" />
+            <ComboBox fx:id="cbQnt" layoutX="135.0" layoutY="124.0" onAction="#onActionCbQnt" prefHeight="25.0" prefWidth="188.0" promptText="..." />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

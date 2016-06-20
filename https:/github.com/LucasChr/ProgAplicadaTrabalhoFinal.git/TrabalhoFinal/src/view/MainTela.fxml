@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainController">
+   <children>
+      <BorderPane fx:id="panelPrincipal" prefHeight="480.0" prefWidth="640.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <top>
+            <MenuBar prefHeight="29.0" prefWidth="466.0" BorderPane.alignment="CENTER">
+               <menus>
+                  <Menu fx:id="mnPedidos" mnemonicParsing="false" text="Pedidos">
+                     <items>
+                        <MenuItem fx:id="miOrcamento" mnemonicParsing="false" onAction="#onActionOrcamento" text="Orçamento" />
+                     </items>
+                  </Menu>
+                  <Menu fx:id="mnCadastro" mnemonicParsing="false" text="Cadastro">
+                     <items>
+                        <MenuItem fx:id="miCliente" mnemonicParsing="false" onAction="#onActionCliente" text="Cliente" />
+                        <MenuItem fx:id="miProduto" mnemonicParsing="false" onAction="#onActionProduto" text="Produto" />
+                     </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Ajuda">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Sobre" />
+                     </items>
+                  </Menu>
+               </menus>
+            </MenuBar>
+         </top>
+      </BorderPane>
+   </children>
+</AnchorPane>

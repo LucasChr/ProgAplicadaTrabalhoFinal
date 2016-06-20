@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ProdutoController">
+   <children>
+      <Pane prefHeight="480.0" prefWidth="640.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label layoutX="40.0" layoutY="62.0" text="Produto:" />
+            <Label layoutX="38.0" layoutY="105.0" text="Categoria:" />
+            <Label layoutX="384.0" layoutY="62.0" text="Código:" />
+            <TextField fx:id="tfProduto" layoutX="102.0" layoutY="57.0" prefHeight="25.0" prefWidth="266.0" />
+            <TextField fx:id="tfCategoria" layoutX="112.0" layoutY="100.0" />
+            <TextField fx:id="tfCodigo" layoutX="443.0" layoutY="57.0" prefHeight="25.0" prefWidth="96.0" />
+            <Label layoutX="306.0" layoutY="105.0" text="Quantia em estoque:" />
+            <TextField fx:id="tfQnt" layoutX="454.0" layoutY="100.0" prefHeight="25.0" prefWidth="85.0" />
+            <Button fx:id="btnAdicionar" layoutX="363.0" layoutY="155.0" mnemonicParsing="false" onAction="#onActionAdicionar" text="Adicionar" />
+            <TableView fx:id="tvProdutos" layoutX="25.0" layoutY="224.0" prefHeight="200.0" prefWidth="581.0">
+              <columns>
+                <TableColumn fx:id="tcCod" prefWidth="94.0" text="Código" />
+                <TableColumn fx:id="tcProduto" prefWidth="215.0" text="Produto" />
+                  <TableColumn fx:id="tcQnt" minWidth="0.0" prefWidth="135.0" text="Quantia" />
+                  <TableColumn fx:id="tcPreco" prefWidth="136.0" text="Preço Unitário" />
+              </columns>
+            </TableView>
+            <Label layoutX="38.0" layoutY="147.0" text="Preço Unitário:" />
+            <TextField fx:id="tfPreco" layoutX="141.0" layoutY="142.0" prefHeight="25.0" prefWidth="137.0" />
+            <Button fx:id="btnNovo" layoutX="465.0" layoutY="155.0" mnemonicParsing="false" onAction="#onActionNovo" text="Novo" />
+            <Button fx:id="btnExcluir" layoutX="41.0" layoutY="191.0" mnemonicParsing="false" onAction="#onActionExcluir" text="Excluir" />
+            <Button fx:id="btnEditar" layoutX="126.0" layoutY="191.0" mnemonicParsing="false" onAction="#onActionEditar" text="Editar" />
+            <Button fx:id="btnSalvar" layoutX="204.0" layoutY="191.0" mnemonicParsing="false" onAction="#onActionSalvar" text="Salvar" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
