@@ -1,6 +1,5 @@
 package model;
 
-import javafx.collections.ObservableList;
 import model.Cliente;
 import model.Produto;
 

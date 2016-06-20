@@ -23,42 +23,29 @@ public class OrcamentoController {
 	private Button btnNovoPedido;
 
 	@FXML
-	private TableColumn<Produto, Number> tcQuantidade;
-
-	@FXML
-	private ComboBox<Produto> cbProduto;
-
-	@FXML
-	private TableColumn<Produto, String> tcProdutos;
-
-	@FXML
 	private Button btnRemItem;
 
 	@FXML
 	private Button btnSalvaPedido;
 
 	@FXML
-	private TableColumn<Orcamento, Number> tvValorTotal;
+	private Button btnCancelar;
 
+	@FXML
+	private TableView<Orcamento> tvOrcamento;
+
+	@FXML
+	private TableColumn<Produto, String> tcProdutos;
+	
 	@FXML
 	private TableColumn<Cliente, String> tcCliente;
-
-	@FXML
-	private TableView<?> tvOrcamento;
-
+	
 	@FXML
 	private ComboBox<Cliente> cbCliente;
 
 	@FXML
-	private ComboBox<Produto> cbQnt;
+	private ComboBox<Produto> cbProduto;
 
-	@FXML
-	private TableColumn<Produto, Number> tcValor;
-
-	@FXML
-	private Button btnCancelar;
-
-	private ComboBox<Produto> cbxProduto;
 	ObservableList<String> list = FXCollections.observableArrayList();
 	public static ObservableList<Orcamento> orcamentoList = FXCollections.observableArrayList();
 
@@ -68,8 +55,6 @@ public class OrcamentoController {
 	private void initialize() {
 		tcCliente.setCellValueFactory(c -> c.getValue().getClienteProperty());
 		tcProdutos.setCellValueFactory(c -> c.getValue().getProdutoProperty());
-		tcQuantidade.setCellValueFactory(c -> c.getValue().getQntProperty());
-		tcValor.setCellValueFactory(c -> c.getValue().getPrecoProperty());
 		
 		tvOrcamento.getSelectionModel().selectedItemProperty()
 		.addListener((observable, oldValue, newValue) -> {
@@ -156,7 +141,7 @@ public class OrcamentoController {
 	void onActionAdicionar(ActionEvent event) {
 		Orcamento orcamento = new Orcamento();
 		Preencher(orcamento);
-		// tvOrcamento.getItems().add(orcamento);
+		tvOrcamento.getItems().add(orcamento);
 		orcamentoList.add(orcamento);
 		
 	}
@@ -198,10 +183,6 @@ public class OrcamentoController {
 		orcamento.setCliente(cbCliente.getValue());
 		orcamento.setProduto(cbProduto.getValue());
 	}
-
-	// private Orcamento popularObjeto() {
-
-	// }
 
 	private void novo() {
 		limparCampos();
