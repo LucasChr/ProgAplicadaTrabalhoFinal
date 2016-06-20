@@ -32,8 +32,8 @@ public class Cliente {
 	public String getNome() {
 		return nome.get();
 	}
-	public void setNome(String nome) {
-		this.nome.set(nome);
+	public void setNome(String cliente) {
+		this.nome.set(cliente);
 	}
 
 	public Sexo getSexo() {

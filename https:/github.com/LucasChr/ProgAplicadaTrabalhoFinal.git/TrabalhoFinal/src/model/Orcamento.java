@@ -1,43 +1,29 @@
 package model;
 
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
+import javafx.collections.ObservableList;
 import model.Cliente;
 import model.Produto;
 
 public class Orcamento {
 	
 	
-	private ObjectProperty<Cliente> cliente;
-	private ObjectProperty<Produto> produto;
-	
-	public Orcamento() {
-		cliente = new SimpleObjectProperty<>();
-		produto = new SimpleObjectProperty<>();
-	}
-
-	public ObjectProperty<Cliente> getClienteProperty() {
-		return cliente;
-	}
-
-	public ObjectProperty<Produto> getProdutoProperty() {
-		return produto;
-	}
+	private Cliente cliente;
+	private Produto produto;
 
 	public Cliente getCliente() {
-		return cliente.get();
-	}
-
-	public void setCliente(Cliente cliente) {
-		this.cliente.set(cliente);
+		return this.cliente;
 	}
 
 	public Produto getProduto() {
-		return produto.get();
+		return this.produto;
+	}
+	
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 
 	public void setProduto(Produto produto) {
-		this.produto.set(produto);
+		this.produto = produto;
 	}
 
 }

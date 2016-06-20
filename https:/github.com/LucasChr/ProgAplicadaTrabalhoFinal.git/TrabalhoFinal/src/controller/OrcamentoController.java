@@ -154,9 +154,9 @@ public class OrcamentoController {
 
 	@FXML
 	void onActionAdicionar(ActionEvent event) {
-		Orcamento orcamento  = new Orcamento();
+		Orcamento orcamento = new Orcamento();
 		Preencher(orcamento);
-		tvOrcamento.getItems().addAll(orcamento);
+		// tvOrcamento.getItems().add(orcamento);
 		orcamentoList.add(orcamento);
 		
 	}
