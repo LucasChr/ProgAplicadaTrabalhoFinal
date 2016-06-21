@@ -13,6 +13,7 @@ import javafx.util.StringConverter;
 import model.Cliente;
 import model.Orcamento;
 import model.Produto;
+import view.componente.Alerta;
 
 public class OrcamentoController {
 
@@ -35,10 +36,10 @@ public class OrcamentoController {
 	private TableView<Orcamento> tvOrcamento;
 
 	@FXML
-	private TableColumn<Produto, String> tcProdutos;
+	private TableColumn<Orcamento, Produto> tcProdutos;
 	
 	@FXML
-	private TableColumn<Cliente, String> tcCliente;
+	private TableColumn<Orcamento, Cliente> tcCliente;
 	
 	@FXML
 	private ComboBox<Cliente> cbCliente;
@@ -46,14 +47,12 @@ public class OrcamentoController {
 	@FXML
 	private ComboBox<Produto> cbProduto;
 
-	ObservableList<String> list = FXCollections.observableArrayList();
-	public static ObservableList<Orcamento> orcamentoList = FXCollections.observableArrayList();
-
+	private ObservableList<Orcamento> orcamentoList = FXCollections.observableArrayList();
 	private boolean editando;
-	
+
 	@FXML
 	private void initialize() {
-		tcCliente.setCellValueFactory(c -> c.getValue().getClienteProperty());
+		tcCliente.setCellValueFactory(cellData -> cellData.getValue().getClienteProperty());
 		tcProdutos.setCellValueFactory(c -> c.getValue().getProdutoProperty());
 		
 		tvOrcamento.getSelectionModel().selectedItemProperty()
@@ -148,46 +147,48 @@ public class OrcamentoController {
 
 	@FXML
 	void onActionCancelar(ActionEvent event) {
-
+		novo();
 	}
 
 	@FXML
 	void onActionRemoverItem(ActionEvent event) {
-
+		if (new Alerta().excluir()) {
+			int posicaoTabela = tvOrcamento.getSelectionModel().getSelectedIndex();
+			tvOrcamento.getItems().remove(posicaoTabela);
+		}
 	}
 
 	@FXML
 	void onActionNovoPedido(ActionEvent event) {
-
+		novo();
 	}
 
 	@FXML
 	void onActionSalvarPedido(ActionEvent event) {
-
+		Orcamento orcamento = new Orcamento();
+		if(editando){
+			int linhaTabela = tvOrcamento.getSelectionModel().getSelectedIndex();
+			tvOrcamento.getItems().remove(linhaTabela);
+			orcamentoList.remove(orcamento);
+		}
+		tvOrcamento.getItems().add(orcamento);
+		orcamentoList.add(orcamento);
 	}
-
-	@FXML
-	void onActionCbQnt(ActionEvent event) {
-
-	}
-
-	private void limparCampos() {
-
-	}
-
-	private void populaText(Object newValue) {
-
+	
+	private void populaText(Orcamento newValue) {
+		cbCliente.setValue(tcCliente.getCellData(newValue));
+		cbProduto.setValue(tcProdutos.getCellData(newValue));
 	}
 
 	private void Preencher(Orcamento orcamento) {
-		orcamento.setCliente(cbCliente.getValue());
-		orcamento.setProduto(cbProduto.getValue());
+		orcamento.setCliente(cbCliente.valueProperty().get());
+		orcamento.setProduto(cbProduto.valueProperty().get());
 	}
 
 	private void novo() {
-		limparCampos();
 		Orcamento o = new Orcamento();
-		/// editando = false;
+		Preencher(o);
+		editando = false;
 	}
 
 }
