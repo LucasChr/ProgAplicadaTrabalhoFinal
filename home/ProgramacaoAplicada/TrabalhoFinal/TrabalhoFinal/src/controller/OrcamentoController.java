@@ -147,7 +147,7 @@ public class OrcamentoController {
 
 	@FXML
 	void onActionCancelar(ActionEvent event) {
-		novo();
+		tvOrcamento.getItems().removeAll();
 	}
 
 	@FXML
@@ -160,6 +160,7 @@ public class OrcamentoController {
 
 	@FXML
 	void onActionNovoPedido(ActionEvent event) {
+		tvOrcamento.getItems().removeAll();
 		novo();
 	}
 

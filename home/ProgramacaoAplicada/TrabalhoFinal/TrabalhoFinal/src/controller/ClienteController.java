@@ -100,13 +100,15 @@ public class ClienteController {
 
 	@FXML
 	void onActionSalvar(ActionEvent event) {
-		Cliente cliente = popularObjeto();
+		Cliente cliente  = populaObjeto();
 		if(editando){
 			int linhaTabela = tvCliente.getSelectionModel().getSelectedIndex();
 			tvCliente.getItems().remove(linhaTabela);
 		}
+		Preencher(cliente);
 		tvCliente.getItems().add(cliente);
-		novo();
+		clientes.add(cliente);
+		limparCampos();
 	}
 
 	private void limparCampos() {
@@ -150,20 +152,21 @@ public class ClienteController {
 		}
 	}
 
-	private Cliente popularObjeto() {
-		cliente.setEndereco(tfEndereco.getText());
-		cliente.setNascimento(dpNascimento.getValue());
-		cliente.setNome(tfNome.getText());
-		cliente.setNumero(Integer.valueOf(tfNumero.getText()));
+	private Cliente populaObjeto(){
+		tfEndereco.setText(cliente.getEndereço());
+		tfNome.setText(cliente.getNome());
+		tfNumero.setText(cliente.getNumero().toString());
+		tfTelefone.setText(cliente.getTelefone().toString());
+		dpNascimento.setValue(cliente.getNascimento());
 		if (rbMasculino.isSelected()) {
 			cliente.setSexo(Sexo.MASCULINO);
 		} else {
 			cliente.setSexo(Sexo.FEMININO);
 		}
-		cliente.setTelefone(Integer.valueOf(tfTelefone.getText()));
 		return cliente;
 	}
-
+	
+	
 	private void novo() {
 		limparCampos();
 		cliente = new Cliente();

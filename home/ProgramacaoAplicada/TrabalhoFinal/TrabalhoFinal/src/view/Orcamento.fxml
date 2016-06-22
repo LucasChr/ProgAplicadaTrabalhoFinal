@@ -13,11 +13,8 @@
             <ComboBox fx:id="cbProduto" layoutX="111.0" layoutY="88.0" prefHeight="25.0" prefWidth="213.0" promptText="Selecione o Produto" />
             <TableView fx:id="tvOrcamento" layoutX="26.0" layoutY="229.0" prefHeight="228.0" prefWidth="584.0">
               <columns>
-                <TableColumn fx:id="tcCliente" prefWidth="150.0" text="Cliente" />
-                <TableColumn fx:id="tcProdutos" prefWidth="131.0" text="Produtos" />
-                  <TableColumn fx:id="tcValor" prefWidth="84.0" text="Valor" />
-                  <TableColumn fx:id="tcQuantidade" prefWidth="108.0" text="Quantidade" />
-                  <TableColumn fx:id="tvValorTotal" prefWidth="110.0" text="Valor Total" />
+                <TableColumn fx:id="tcCliente" prefWidth="370.0" text="Cliente" />
+                <TableColumn fx:id="tcProdutos" prefWidth="213.0" text="Produtos" />
               </columns>
             </TableView>
             <Label layoutX="50.0" layoutY="42.0" text="Cliente:" />

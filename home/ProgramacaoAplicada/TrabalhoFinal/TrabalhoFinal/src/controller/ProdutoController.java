@@ -131,11 +131,11 @@ public class ProdutoController {
 	}
 
 	private void populaText(Produto newValue) {
-		tfCodigo.setText(produto.getCodigo().toString());
-		tfProduto.setText(produto.getNome());
-		tfQnt.setText(produto.getQnt().toString());
-		tfPreco.setText(produto.getPreco().toString());
-		tfCategoria.setText(produto.getCategoria());
+		tfCodigo.setText(newValue.getCodigo().toString());
+		tfProduto.setText(newValue.getNome());
+		tfQnt.setText(newValue.getQnt().toString());
+		tfPreco.setText(newValue.getPreco().toString());
+		tfCategoria.setText(newValue.getCategoria());
 	}
 
 	private void Preencher(Produto produto) {
